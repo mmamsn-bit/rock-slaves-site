@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Slaves | Site Officiel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400&display=swap');
+        h1, h2 { font-family: 'Oswald', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: white; }
+    </style>
+</head>
+<body>
+
+    <header class="h-screen flex flex-col items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=2070')] bg-cover bg-center bg-no-repeat">
+        <div class="bg-black/60 w-full h-full flex flex-col items-center justify-center p-4">
+            <h1 class="text-7xl md:text-9xl uppercase italic tracking-tighter text-white mb-4">Rock Slaves</h1>
+            <p class="text-xl tracking-[0.3em] uppercase mb-8">Raw Power • Live Energy</p>
+            <a href="#tour" class="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-red-600 hover:text-white transition duration-300">VOIR LES DATES</a>
+        </div>
+    </header>
+
+    <section class="py-20 px-4 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl mb-12 uppercase">Le Son</h2>
+        <div class="aspect-video">
+            <iframe class="w-full h-full rounded-lg shadow-2xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="tour" class="py-20 bg-zinc-900 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl mb-12 text-center uppercase">Tournée 2026</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center border-b border-zinc-700 py-4">
+                    <div>
+                        <p class="font-bold">24 MARS</p>
+                        <p class="text-zinc-400">Le Zenith, Paris</p>
+                    </div>
+                    <button class="border border-white px-4 py-2 hover:bg-white hover:text-black transition">BILLETS</button>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center">
+        <p class="mb-4 text-zinc-500">© 2026 ROCK SLAVES</p>
+        <div class="flex justify-center space-x-6">
+            <a href="#" class="hover:text-red-600 transition">FACEBOOK</a>
+            <a href="#" class="hover:text-red-600 transition">INSTAGRAM</a>
+            <a href="#" class="hover:text-red-600 transition">SPOTIFY</a>
+        </div>
+    </footer>
+
+</body>
+</html>
