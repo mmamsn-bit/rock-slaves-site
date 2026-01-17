@@ -9,19 +9,17 @@
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;900&display=swap');
         h1 { font-family: 'Oswald', sans-serif; text-shadow: 2px 2px 15px rgba(0,0,0,1); }
         
-        /* Correctif pour le défilement sur Opera et tous navigateurs */
-        html { 
-            scroll-behavior: smooth; 
-            overflow-y: scroll !important; 
+        /* Correctif ultime pour le scroll (Opera / Mobile) */
+        html, body { 
             height: auto !important;
-        }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #000; 
-            color: white; 
-            margin: 0; 
+            min-height: 100% !important;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            background-color: #000;
+            color: white;
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
@@ -50,7 +48,7 @@
             
             <a href="#video" class="inline-block animate-bounce opacity-70 hover:opacity-100 transition">
                 <p class="text-[10px] uppercase tracking-[0.4em] mb-2">Dernière Vidéo</p>
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path></svg>
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path></svg>
             </a>
         </div>
 
@@ -60,7 +58,7 @@
         </div>
     </header>
 
-    <section id="video" class="py-24 bg-zinc-900 text-center">
+    <section id="video" class="py-24 bg-zinc-900 text-center relative z-20">
         <h2 class="text-4xl font-bold uppercase mb-12 italic tracking-widest text-red-600">Dernière Vidéo</h2>
         <div class="max-w-4xl mx-auto px-4">
             <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
@@ -69,7 +67,7 @@
         </div>
     </section>
 
-    <footer class="py-16 border-t border-zinc-800 text-center bg-black">
+    <footer class="py-16 border-t border-zinc-800 text-center bg-black relative z-20">
         <div class="flex justify-center space-x-12 mb-8 text-sm tracking-widest uppercase font-bold text-zinc-400">
             <a href="https://www.facebook.com/FridriciClaude" target="_blank" class="hover:text-red-500 transition">Contact</a>
             <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" class="hover:text-red-500 transition">YouTube</a>
@@ -80,7 +78,7 @@
                 © 2026 ROCK SLAVES - KYMIDRUMPSPROD
             </p>
             
-            <img src="kymidrumsprod logo.png" alt="Logo KymiDrumsProd" class="h-16 w-auto opacity-80 hover:opacity-100 transition duration-300">
+            <img src="kymi.png" alt="Logo KymiDrumsProd" class="h-20 w-auto opacity-90 hover:opacity-100 transition duration-300">
         </div>
     </footer>
 
