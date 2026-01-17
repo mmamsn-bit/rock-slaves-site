@@ -1,55 +1,53 @@
-u<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Slaves | Site Officiel</title>
+    <title>Rock Slaves | Officiel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400&display=swap');
-        h1, h2 { font-family: 'Oswald', sans-serif; }
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: white; }
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;900&display=swap');
+        h1 { font-family: 'Oswald', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; }
     </style>
 </head>
 <body>
 
-    <header class="h-screen flex flex-col items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=2070')] bg-cover bg-center bg-no-repeat">
-        <div class="bg-black/60 w-full h-full flex flex-col items-center justify-center p-4">
-            <h1 class="text-7xl md:text-9xl uppercase italic tracking-tighter text-white mb-4">Rock Slaves</h1>
-            <p class="text-xl tracking-[0.3em] uppercase mb-8">Raw Power • Live Energy</p>
-            <a href="#tour" class="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-red-600 hover:text-white transition duration-300">VOIR LES DATES</a>
+    <header class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://yt3.googleusercontent.com/UDhbbDswg8uUIYxLIEZ9yxrqaPcWySf_puSXULrKPLH-mpEbZLgkRdOpddEKI01TIBS6nJSI=s160-c-k-c0x00ffffff-no-rj" alt="Rock Slaves Background" class="w-full h-full object-cover opacity-50">
+        </div>
+
+        <div class="relative z-10 p-4">
+            <h1 class="text-7xl md:text-9xl uppercase italic font-black tracking-tighter mb-4">ROCK SLAVES</h1>
+            <p class="text-xl tracking-[0.4em] font-light mb-10">LUXEMBOURG ROCK CITY</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full transition duration-300">
+                    VOIR SUR YOUTUBE
+                </a>
+                <a href="#about" class="border border-white hover:bg-white hover:text-black font-bold py-4 px-10 rounded-full transition duration-300">
+                    LE GROUPE
+                </a>
+            </div>
         </div>
     </header>
 
-    <section class="py-20 px-4 max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl mb-12 uppercase">Le Son</h2>
-        <div class="aspect-video">
-            <iframe class="w-full h-full rounded-lg shadow-2xl" src="https://www.youtube.com/@RockSlavesLux" frameborder="0" allowfullscreen></iframe>
+    <section class="py-20 bg-zinc-900 text-center">
+        <h2 class="text-4xl font-bold uppercase mb-8">Dernière Vidéo</h2>
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed?listType=user_uploads&list=RockSlavesLux" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
-    <section id="tour" class="py-20 bg-zinc-900 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl mb-12 text-center uppercase">Tournée 2026</h2>
-            <div class="space-y-4">
-                <div class="flex justify-between items-center border-b border-zinc-700 py-4">
-                    <div>
-                        <p class="font-bold">OnGoing </p>
-                        <p class="text-zinc-400">FRANCE; LU</p>
-                    </div>
-                    <button class="border border-white px-4 py-2 hover:bg-white hover:text-black transition">BILLETS</button>
-                </div>
-                </div>
+    <footer class="py-12 border-t border-zinc-800 text-center">
+        <div class="flex justify-center space-x-8 mb-6">
+            <a href="https://www.facebook.com/RockSlavesLux" target="_blank" class="text-zinc-400 hover:text-white uppercase font-bold">Facebook</a>
+            <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" class="text-zinc-400 hover:text-white uppercase font-bold">YouTube</a>
         </div>
-    </section>
-
-    <footer class="py-10 text-center">
-        <p class="mb-4 text-zinc-500">© 2026 ROCK SLAVES</p>
-        <div class="flex justify-center space-x-6">
-            <a href="#" class="hover:text-red-600 transition">FACEBOOK</a>
-            <a href="#" class="hover:text-red-600 transition">INSTAGRAM</a>
-            <a href="#" class="hover:text-red-600 transition">SPOTIFY</a>
-        </div>
+        <p class="text-zinc-600 text-sm">© 2026 ROCK SLAVES - Propulsé par la rage du Rock</p>
     </footer>
 
 </body>
