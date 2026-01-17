@@ -8,9 +8,21 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;900&display=swap');
         h1 { font-family: 'Oswald', sans-serif; text-shadow: 2px 2px 15px rgba(0,0,0,1); }
-        /* Force le scroll et assure la fluidité */
-        html { scroll-behavior: smooth; overflow-y: auto !important; }
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; margin: 0; padding: 0; }
+        
+        /* Correctif pour le défilement sur Opera et tous navigateurs */
+        html { 
+            scroll-behavior: smooth; 
+            overflow-y: scroll !important; 
+            height: auto !important;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #000; 
+            color: white; 
+            margin: 0; 
+            padding: 0;
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body>
@@ -62,4 +74,15 @@
             <a href="https://www.facebook.com/FridriciClaude" target="_blank" class="hover:text-red-500 transition">Contact</a>
             <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" class="hover:text-red-500 transition">YouTube</a>
         </div>
-        <p class="text-zinc-
+        
+        <div class="flex flex-col items-center gap-6">
+            <p class="text-zinc-500 text-xs font-bold tracking-[0.3em] uppercase">
+                © 2026 ROCK SLAVES - KYMIDRUMPSPROD
+            </p>
+            
+            <img src="kymidrumsprod logo .png" alt="Logo KymiDrumsProd" class="h-16 w-auto opacity-80 hover:opacity-100 transition duration-300">
+        </div>
+    </footer>
+
+</body>
+</html>
