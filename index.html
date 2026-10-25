@@ -1,307 +1,743 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Slaves - CF Power Trio | Officiel</title>
+    
+    <!-- SEO Standard -->
+    <title>Rock Slaves - CF Power Trio | Site Officiel</title>
+    <meta name="description" content="Rock Slaves & CF Power Trio - Full Power Trio Band Rock/Hard-Rock basé au Luxembourg et en France. Concerts, vidéos, compositions originales et reprises.">
+    <meta name="keywords" content="Rock Slaves, CF Power Trio, Claude Fridrici, Rock Luxembourg, Hard Rock Band, Concerts Rock, Power Trio">
+    <meta name="author" content="KymiDrumsProd / CF Power Trio">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rockslavescfpowertrio.netlify.app/">
+    <meta property="og:title" content="Rock Slaves - CF Power Trio | Officiel">
+    <meta property="og:description" content="Full Power Trio Band from Luxembourg-France. Découvrez nos dates de concerts, vidéos live et compositions.">
+    <meta property="og:image" content="Lemmys.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Rock Slaves - CF Power Trio | Officiel">
+    <meta property="twitter:description" content="Full Power Trio Band from Luxembourg-France. Concerts, vidéos live et actus.">
+    <meta property="twitter:image" content="Lemmys.jpg">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;900&display=swap');
-        h1 { font-family: 'Oswald', sans-serif; text-shadow: 2px 2px 15px rgba(0,0,0,1); }
-        
-        html, body { 
-            height: auto !important;
-            min-height: 100% !important;
-            overflow-y: auto !important;
-            overflow-x: hidden !important;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: white;
-            font-family: 'Inter', sans-serif;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#dc2626',
+                        brandRedGlow: 'rgba(220, 38, 38, 0.5)',
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-        .social-icon:hover { filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.8)); transform: scale(1.1); transition: all 0.3s; }
-        .member-card:hover { border-color: rgba(220, 38, 38, 0.5); background-color: rgba(220, 38, 38, 0.05); transition: all 0.3s; }
-        .member-link:hover p { color: #ffffff; text-shadow: 0 0 10px rgba(220, 38, 38, 0.8); }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles Custom -->
+    <style>
+        h1, h2, h3, .font-oswald { font-family: 'Oswald', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+
+        /* Neon Glow Effects */
+        .btn-glow {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.2);
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(220, 38, 38, 0.8), 0 0 5px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        .card-glow:hover {
+            border-color: rgba(220, 38, 38, 0.6);
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Filter Tab active state */
+        .tab-btn.active {
+            background-color: #dc2626;
+            color: #ffffff;
+            border-color: #dc2626;
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
     </style>
 </head>
-<body>
+<body class="bg-black text-white antialiased selection:bg-red-600 selection:text-white">
 
-    <header class="min-h-screen w-full flex flex-col items-center justify-between text-center relative py-10">
-        <div class="relative z-10 w-full max-w-[280px] md:max-w-[380px] px-6 mt-4">
-            <img src="logo.png" alt="Logo Rock Slaves" class="w-full h-auto object-contain mx-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+    <!-- ========================================== -->
+    <!-- NAVIGATION FIXE (Sticky Glassmorphism Navbar) -->
+    <!-- ========================================== -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                
+                <!-- Logo Nav -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <img src="logo.png" alt="Rock Slaves Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+                    <span class="font-oswald text-xl font-bold tracking-wider uppercase text-white group-hover:text-red-600 transition-colors">
+                        ROCK SLAVES <span class="text-red-600 text-sm font-light block sm:inline sm:text-base">- CF Power Trio -</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-6 text-xs uppercase font-bold tracking-widest">
+                    <a href="#home" class="hover:text-red-500 transition-colors py-2">Accueil</a>
+                    <a href="#concerts" class="hover:text-red-500 transition-colors py-2">Concerts</a>
+                    <a href="#lineup" class="hover:text-red-500 transition-colors py-2">Line-Up</a>
+                    <a href="#videos" class="hover:text-red-500 transition-colors py-2">Vidéos</a>
+                    <a href="#contact" class="hover:text-red-500 transition-colors py-2">Contact & Riders</a>
+                </div>
+
+                <!-- Action Button Navbar -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="tel:+352691805548" class="text-xs font-bold text-zinc-300 hover:text-white transition">📞 +352 691 805 548</a>
+                    <a href="#concerts" class="bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] uppercase tracking-widest px-4 py-2 rounded-full btn-glow">
+                        Prochain Show
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" class="md:hidden text-zinc-300 hover:text-white focus:outline-none p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <div class="relative z-10 px-4">
-            <h1 class="text-5xl md:text-8xl uppercase italic font-black tracking-tighter mb-2 text-white leading-tight">ROCK SLAVES<br><span class="text-red-600">- CF POWER TRIO -</span></h1>
-            <p class="text-lg md:text-xl tracking-[0.4em] font-light text-zinc-400 uppercase">Band from Luxembourg-France</p>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950/95 border-b border-zinc-800 px-4 pt-2 pb-6 space-y-3 uppercase font-bold text-sm tracking-wider text-center">
+            <a href="#home" class="block py-2 text-zinc-300 hover:text-red-500 border-b border-zinc-900">Accueil</a>
+            <a href="#concerts" class="block py-2 text-zinc-300 hover:text-red-500 border-b border-zinc-900">Concerts</a>
+            <a href="#lineup" class="block py-2 text-zinc-300 hover:text-red-500 border-b border-zinc-900">Line-Up</a>
+            <a href="#videos" class="block py-2 text-zinc-300 hover:text-red-500 border-b border-zinc-900">Vidéos</a>
+            <a href="#contact" class="block py-2 text-zinc-300 hover:text-red-500">Contact & Riders</a>
+            <div class="pt-2 flex flex-col items-center gap-2">
+                <a href="tel:+352691805548" class="text-xs text-zinc-400 font-normal">+352 691 805 548</a>
+                <a href="#concerts" class="w-full bg-red-600 text-white py-3 rounded-full font-bold text-xs">
+                    Voir les prochaines dates
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION avec LOGO & HEADER            -->
+    <!-- ========================================== -->
+    <header id="home" class="min-h-screen pt-24 pb-16 flex flex-col justify-between items-center text-center relative overflow-hidden px-4">
+        
+        <!-- Background Overlay with Ambient Glow -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/15 rounded-full blur-[140px]"></div>
+            <img src="logo.png" alt="Rock Slaves Background" class="w-full h-full object-cover opacity-10 blur-xl">
+        </div>
+
+        <!-- Main Logo -->
+        <div class="relative z-10 w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] mt-6">
+            <img src="logo.png" alt="Logo Rock Slaves" class="w-full h-auto object-contain mx-auto drop-shadow-[0_0_30px_rgba(220,38,38,0.3)]">
+        </div>
+
+        <!-- Main Titles -->
+        <div class="relative z-10 my-8">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl uppercase italic font-black tracking-tighter mb-2 text-white leading-tight drop-shadow-lg">
+                ROCK SLAVES<br><span class="text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]">- CF POWER TRIO -</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl tracking-[0.35em] font-light text-zinc-400 uppercase mt-4">
+                Full Power Trio Band from Luxembourg-France
+            </p>
             
-            <div class="flex justify-center gap-8 mt-6">
-                <a href="https://www.facebook.com/people/Rock-Slaves/61583537252104/" target="_blank" class="social-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" class="w-8 h-8 md:w-10 md:h-10">
+            <!-- Social Networks -->
+            <div class="flex justify-center items-center gap-6 mt-8">
+                <a href="https://www.facebook.com/people/Rock-Slaves/61583537252104/" target="_blank" rel="noopener" aria-label="Facebook Rock Slaves" class="p-3 bg-zinc-900/80 rounded-full border border-zinc-800 hover:border-red-600 hover:scale-110 transition-all duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" class="w-7 h-7">
                 </a>
-                <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" class="social-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="w-8 h-8 md:w-10 md:h-10">
+                <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" rel="noopener" aria-label="YouTube Rock Slaves" class="p-3 bg-zinc-900/80 rounded-full border border-zinc-800 hover:border-red-600 hover:scale-110 transition-all duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Rock Slaves" class="w-7 h-7">
+                </a>
+                <a href="https://www.youtube.com/@claudefridrici" target="_blank" rel="noopener" aria-label="YouTube Claude Fridrici" class="p-3 bg-zinc-900/80 rounded-full border border-zinc-800 hover:border-red-600 hover:scale-110 transition-all duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube CF Power Trio" class="w-7 h-7 filter saturate-150">
                 </a>
             </div>
         </div>
 
-        <div class="relative z-10 w-full px-4 mb-8">
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-6">
-                <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" class="w-full md:w-80 bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-full transition duration-300 shadow-2xl uppercase tracking-widest text-sm text-center">
-                    Chaîne ROCK SLAVES
+        <!-- Action Links & Channels -->
+        <div class="relative z-10 w-full max-w-4xl px-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <a href="https://www.youtube.com/@RockSlavesLux" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-full transition duration-300 uppercase tracking-widest text-xs sm:text-sm text-center btn-glow flex items-center justify-center gap-2">
+                    <span>▶</span> Chaîne Youtube ROCK SLAVES
                 </a>
-                <a href="https://www.youtube.com/@claudefridrici" target="_blank" class="w-full md:w-80 bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-4 px-6 rounded-full transition duration-300 shadow-2xl uppercase tracking-widest text-sm text-center border border-red-600/50">
-                    YouTube CF POWER TRIO
-                </a>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-8">
-                <a href="mailto:rockslaves.coverband@gmail.com" class="w-full md:w-80 border-2 border-white bg-black/40 hover:bg-white hover:text-black font-bold py-4 px-6 rounded-full transition duration-300 backdrop-blur-md uppercase tracking-widest text-[10px] text-center">
-                    Contacter Rock Slaves
-                </a>
-                <a href="mailto:fridriciclaude@yahoo.fr" class="w-full md:w-80 border-2 border-red-600 bg-black/40 hover:bg-red-600 hover:text-white font-bold py-4 px-6 rounded-full transition duration-300 backdrop-blur-md uppercase tracking-widest text-[10px] text-center">
-                    Contacter CF Power Trio
+                <a href="https://www.youtube.com/@claudefridrici" target="_blank" rel="noopener" class="bg-zinc-900 hover:bg-zinc-800 text-white font-bold py-4 px-6 rounded-full transition duration-300 uppercase tracking-widest text-xs sm:text-sm text-center border border-red-600/50 hover:border-red-600 flex items-center justify-center gap-2">
+                    <span>▶</span> YouTube CF POWER TRIO
                 </a>
             </div>
 
-            <div class="mb-6 text-zinc-300 text-sm font-medium">
-                <a href="tel:+352691805548" class="tracking-widest mb-4 hover:text-red-500 transition block text-lg font-bold italic">+352 691 805 548</a>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto mt-6 uppercase text-[9px] tracking-widest font-bold">
-                    <div class="flex flex-col gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
-                        <p class="text-zinc-500 mb-1 italic">Rider Rock Trio :</p>
-                        <div class="flex gap-2 justify-center">
-                            <a href="riderrtfr.pdf" target="_blank" download class="text-red-500 hover:text-white border border-red-500/30 px-4 py-2 rounded hover:bg-red-500/10 transition flex-1">FR</a>
-                            <a href="riderrten.pdf" target="_blank" download class="text-red-500 hover:text-white border border-red-500/30 px-4 py-2 rounded hover:bg-red-500/10 transition flex-1">EN</a>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
-                        <p class="text-zinc-500 mb-1 italic">Rider Rock Slaves :</p>
-                        <div class="flex gap-2 justify-center">
-                            <a href="riderfr.pdf" target="_blank" download class="text-white hover:text-red-500 border border-white/30 px-4 py-2 rounded hover:bg-white/10 transition flex-1">FR</a>
-                            <a href="rideren.pdf" target="_blank" download class="text-white hover:text-red-500 border border-white/30 px-4 py-2 rounded hover:bg-white/10 transition flex-1">EN</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Booking Quick Contact -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="mailto:rockslaves.coverband@gmail.com" class="border-2 border-zinc-700 bg-black/60 hover:bg-white hover:text-black hover:border-white font-bold py-3 px-6 rounded-full transition duration-300 backdrop-blur-md uppercase tracking-widest text-[11px] text-center">
+                    ✉ Contact Booking Rock Slaves
+                </a>
+                <a href="mailto:fridriciclaude@yahoo.fr" class="border-2 border-red-600/80 bg-black/60 hover:bg-red-600 hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 backdrop-blur-md uppercase tracking-widest text-[11px] text-center">
+                    ✉ Contact Direct CF Power Trio
+                </a>
             </div>
-
-            <div class="mt-8 py-6 border-y border-red-600/30 bg-red-600/5 max-w-2xl mx-auto rounded-lg backdrop-blur-sm">
-                <h3 class="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-4 italic text-center">📅 Prochains Concerts 2026</h3>
-                <div class="space-y-3 text-sm px-4 text-center">
-                    <p class="text-white"><span class="text-red-500 font-bold">21 Novembre 2026 </span>: Concert au Lemmy's - Longwy </p>
-                    <div class="py-4 max-w-sm mx-auto">
-                        <img src="Lemmys.jpg" alt="Affiche Concert 21 Novembre 2026 Avril" class="w-full h-auto rounded-xl shadow-[0_0_25px_rgba(220,38,38,0.5)] border border-red-600/40">
-                    </div>
-                    <p class="text-white"><span class="text-red-500 font-bold">05 décembre 2026 </span>: concert au DIVA | Esch sur Alzette </p>
-                    <p class="text-white"><span class="text-red-500 font-bold">19 décembre 2026 </span> : Concert au Café Duerfkessel Käerch + Superdrive https://www.facebook.com/SUPERDRIVE.ROCKS/</p>
-                    <p class="text-white"><span class="text-red-500 font-bold">03 Avril 2027 </span>: Brasserie St Rémy - Kédange sur Canner </p>
-                </div>
-                
-                <div class="mt-10 pt-6 border-t border-red-600/20">
-                    <h4 class="text-zinc-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-4 text-center italic">Archive / Concerts Passés</h4>
-                    <div class="space-y-2 text-[11px] px-4 text-center text-zinc-400 h-32 overflow-y-auto font-light italic">
-                        <p>23 Octobre 2026 - We are special guest opening for Julie Vincent - LE LAB - Thionville - @ Claude is the guitarist of Julie for this gig »</p>
-                        <p>16 Octobre 2026 - Ancien Cinéma Café Club| 23 Grand-Rue, 9410 Vianden, Luxembourg - https://www.anciencinema.lu/events/claude-fridirici-trio/ »</p>
-                        <p>19 Septembre 2026 - CANCELED : Side One Café | 75 rue hirschauer, Saint-Avold, France, 57500-https://www.facebook.com/pino.sideone/ »</p> 
-                        <p>11 juillet 2026 - BLUES EXPRESS - Differdange Scène du LAMINOIRE https://www.bluesexpress.lu/ »</p>
-                        <p>23 Juin 2026 - concert performed -« Journée du Grand-Duc »- REPORTED-Autre Date sera fournie ultérieurement: ROCK BOX 3 Rives de Clausen, 2165 Gronn Lëtzebuerg »</p>
-                        <p>30 Mai 2026 - REPORTED-Autre Date sera fournie ultérieurement : Hobscheid - Café Duerfkrou Habscht- https://www.facebook.com/DuerfkrouHabscht/ »</p>
-                        <p>13 Mai 2026 - concert performed - A Bau | Heffingen- https://cafe-a-bau.lu/news.htm »</p>
-                        <p>04 Avril 2026 - concert performed - Café Duerfkessel Käerch - concert held - Koerich Release Party + After Tank guest »</p>
-                        <p>20 Mars 2026 - "St Patrick week-end event-Les Gros Brasseurs" NANCY-FROUARD »</p>
-                        <p>18 Octobre 2025 - Duerfkessel - Koerich</p>
-                        <p>11 Octobre 2025 - A Bau Cafe - Heffingen</p>
-                        <p>20 Septembre 2025 - Chop'n Rock - Sedan</p>
-                        <p>9 Août 2025 - Guinguette - Nancy</p>
-                        <p>2 Août 2025 - A Bau Cafe - Heffingen</p>
-                        <p>12 Juillet 2025 - Blues Express - Differdange</p>
-                        <p>21 Juin 2025 - Fête de la Musique - Longuyon</p>
-                        <p>6 Juin 2025 - Rock Box - Luxembourg</p>
-                        <p>24 Mai 2025 - Black Baron - Nancy</p>
-                        <p>2 Mai 2025 - Flying Dutchman - Beaufort</p>
-                        <p>13 Juillet 2024 - Blues Express - Differdange</p>
-                        <p>21 Juin 2024 - Le Petit Mecano - Liverdun</p>
-                        <p>31 Mai 2024 - Cafe Racer - Clemency</p>
-                        <p>20 Avril 2024 - Badass Café - Dudelange</p>
-                        <p>14 Avril 2024 - Point b'Art - Fratin</p>
-                        <p>1 Mars 2024 - Vantage - Luxembourg</p>
-                        <p>7 Octobre 2023 - Cafe Racer - Clemency</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10 opacity-80"></div>
-            <img src="logo.png" class="w-full h-full object-cover opacity-10 blur-md" alt="background">
         </div>
     </header>
 
-    <section id="bio" class="py-24 bg-black text-center relative z-20 border-t border-zinc-900">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-4xl font-bold uppercase mb-8 italic tracking-widest text-white">Line-up</h2>
-            <p class="text-zinc-400 leading-relaxed mb-16 text-lg max-w-3xl mx-auto">
+    <!-- ========================================== -->
+    <!-- SECTION PROCHAIN CONCERT & COUNTDOWN       -->
+    <!-- ========================================== -->
+    <section id="concerts" class="py-16 bg-zinc-950 border-y border-zinc-800 relative z-20">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="text-center mb-10">
+                <span class="inline-block px-4 py-1 rounded-full bg-red-600/20 text-red-500 border border-red-600/40 font-bold uppercase tracking-[0.2em] text-xs mb-3 animate-pulse">
+                    🔥 Prochain Événement Majeur 2026
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold uppercase italic tracking-wider">Prochains Concerts</h2>
+            </div>
+
+            <!-- Hero Concert Card avec Affiche Lemmy's conservée -->
+            <div class="bg-gradient-to-br from-zinc-900 via-zinc-950 to-black rounded-3xl border border-red-600/40 p-6 md:p-10 shadow-[0_0_40px_rgba(220,38,38,0.15)] mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Poster Image (Lemmys.jpg) -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative group max-w-sm w-full">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-amber-600 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                            <img src="Lemmys.jpg" alt="Affiche Concert 21 Novembre 2026 Lemmy's" class="relative w-full h-auto rounded-xl shadow-2xl border border-zinc-700/80 object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Concert Info & Countdown -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div>
+                            <p class="text-red-500 font-bold uppercase tracking-widest text-sm mb-1">21 Novembre 2026</p>
+                            <h3 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white italic">
+                                Live @ Lemmy's - Longwy
+                            </h3>
+                            <p class="text-zinc-400 text-sm mt-2 font-medium">
+                                Koerich Release Party + After Tank guest
+                            </p>
+                        </div>
+
+                        <!-- Dynamic Countdown Box -->
+                        <div class="bg-black/60 border border-zinc-800 rounded-2xl p-4 md:p-6 backdrop-blur-sm">
+                            <p class="text-zinc-500 text-[10px] uppercase font-bold tracking-[0.3em] mb-3 text-center">Compte à Rebours Show</p>
+                            <div id="countdown" class="grid grid-cols-4 gap-2 text-center">
+                                <div class="p-2 bg-zinc-900/90 rounded-lg border border-zinc-800">
+                                    <span id="cd-days" class="block font-oswald text-2xl sm:text-4xl font-bold text-red-500">00</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-zinc-400">Jours</span>
+                                </div>
+                                <div class="p-2 bg-zinc-900/90 rounded-lg border border-zinc-800">
+                                    <span id="cd-hours" class="block font-oswald text-2xl sm:text-4xl font-bold text-white">00</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-zinc-400">Heures</span>
+                                </div>
+                                <div class="p-2 bg-zinc-900/90 rounded-lg border border-zinc-800">
+                                    <span id="cd-minutes" class="block font-oswald text-2xl sm:text-4xl font-bold text-white">00</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-zinc-400">Min</span>
+                                </div>
+                                <div class="p-2 bg-zinc-900/90 rounded-lg border border-zinc-800">
+                                    <span id="cd-seconds" class="block font-oswald text-2xl sm:text-4xl font-bold text-red-500">00</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-zinc-400">Sec</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Action Buttons for Venue -->
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Lemmy's+Bar+Longwy" target="_blank" rel="noopener" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold px-4 py-3 rounded-xl transition border border-zinc-700 flex items-center gap-2">
+                                📍 Itinéraire Google Maps
+                            </a>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Rock+Slaves+-+Concert+Lemmy%27s+Longwy&dates=20261121T200000Z/20261121T233000Z&details=Koerich+Release+Party+%2B+After+Tank+guest&location=Lemmy%27s+Longwy" target="_blank" rel="noopener" class="bg-red-600/20 hover:bg-red-600/40 text-red-400 hover:text-white text-xs font-bold px-4 py-3 rounded-xl border border-red-600/40 transition flex items-center gap-2">
+                                📅 Ajout Google Calendar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Upcoming Dates 2026/2027 -->
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+                <h4 class="text-zinc-300 font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                    Autres Dates confirmées 2026 - 2027
+                </h4>
+
+                <div class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-zinc-900/80 rounded-xl border border-zinc-800/80 hover:border-zinc-700 transition">
+                        <div>
+                            <span class="text-red-500 font-bold text-sm block">05 Décembre 2026</span>
+                            <span class="text-white font-bold text-lg">Concert au DIVA</span>
+                        </div>
+                        <span class="text-zinc-400 text-xs mt-1 sm:mt-0 italic uppercase">Esch-sur-Alzette (LU)</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-zinc-900/80 rounded-xl border border-zinc-800/80 hover:border-zinc-700 transition">
+                        <div>
+                            <span class="text-red-500 font-bold text-sm block">19 Décembre 2026</span>
+                            <span class="text-white font-bold text-lg">Café Duerfkessel Käerch</span>
+                            <span class="text-zinc-400 text-xs block sm:inline sm:ml-2">+ Superdrive</span>
+                        </div>
+                        <a href="https://www.facebook.com/SUPERDRIVE.ROCKS/" target="_blank" rel="noopener" class="text-red-400 hover:underline text-xs mt-1 sm:mt-0 font-medium">Page Superdrive ↗</a>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-zinc-900/80 rounded-xl border border-zinc-800/80 hover:border-zinc-700 transition">
+                        <div>
+                            <span class="text-red-500 font-bold text-sm block">03 Avril 2027</span>
+                            <span class="text-white font-bold text-lg">Brasserie St Rémy</span>
+                        </div>
+                        <span class="text-zinc-400 text-xs mt-1 sm:mt-0 italic uppercase">Kédange-sur-Canner (FR)</span>
+                    </div>
+                </div>
+
+                <!-- Accordion Past Shows / Archives -->
+                <div class="mt-8 pt-6 border-t border-zinc-800">
+                    <button id="toggle-archives-btn" class="w-full flex items-center justify-between py-3 px-4 bg-zinc-950 hover:bg-zinc-800 rounded-xl text-zinc-400 hover:text-white transition font-bold text-xs uppercase tracking-widest border border-zinc-800">
+                        <span>🏛️ Consulter l'Archive des Concerts Passés</span>
+                        <span id="accordion-arrow" class="text-lg transition-transform duration-300">▼</span>
+                    </button>
+
+                    <div id="archives-container" class="hidden mt-4 space-y-2 text-xs text-zinc-400 bg-black/60 p-4 rounded-xl border border-zinc-800 max-h-80 overflow-y-auto">
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">23 Octobre 2026 :</strong> Special guest opening for Julie Vincent - LE LAB Thionville (Claude on guitar)</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">16 Octobre 2026 :</strong> Ancien Cinéma Café Club - Vianden (LU)</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">19 Septembre 2026 :</strong> Side One Café - Saint-Avold (FR)</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">11 Juillet 2026 :</strong> BLUES EXPRESS - Differdange (Scène du Laminoir)</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">23 Juin 2026 :</strong> Rock Box - Rives de Clausen, Luxembourg</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">13 Mai 2026 :</strong> A Bau - Heffingen</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">04 Avril 2026 :</strong> Café Duerfkessel Käerch - Release Party</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">20 Mars 2026 :</strong> St Patrick week-end Les Gros Brasseurs - Nancy-Frouard</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">18 Octobre 2025 :</strong> Duerfkessel - Koerich</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">11 Octobre 2025 :</strong> A Bau Cafe - Heffingen</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">20 Septembre 2025 :</strong> Chop'n Rock - Sedan</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">9 Août 2025 :</strong> Guinguette - Nancy</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">2 Août 2025 :</strong> A Bau Cafe - Heffingen</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">12 Juillet 2025 :</strong> Blues Express - Differdange</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">21 Juin 2025 :</strong> Fête de la Musique - Longuyon</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">6 Juin 2025 :</strong> Rock Box - Luxembourg</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">24 Mai 2025 :</strong> Black Baron - Nancy</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">2 Mai 2025 :</strong> Flying Dutchman - Beaufort</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">13 Juillet 2024 :</strong> Blues Express - Differdange</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">21 Juin 2024 :</strong> Le Petit Mecano - Liverdun</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">31 Mai 2024 :</strong> Cafe Racer - Clemency</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">20 Avril 2024 :</strong> Badass Café - Dudelange</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">14 Avril 2024 :</strong> Point b'Art - Fratin</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">1 Mars 2024 :</strong> Vantage - Luxembourg</p>
+                        <p class="py-1 border-b border-zinc-900"><strong class="text-zinc-300">7 Octobre 2023 :</strong> Cafe Racer - Clemency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION LINE-UP                            -->
+    <!-- ========================================== -->
+    <section id="lineup" class="py-24 bg-black text-center relative z-20">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <h2 class="text-4xl sm:text-5xl font-bold uppercase mb-4 italic tracking-widest text-white">Line-Up / Le Groupe</h2>
+            <p class="text-zinc-400 leading-relaxed mb-16 text-base sm:text-lg max-w-3xl mx-auto font-light">
                 Basé au Luxembourg, <span class="text-red-600 font-bold">Rock Slaves - CF Power Trio</span> est un <span class="text-white font-bold">Full Power Trio Band</span>. 
-                Alternant entre reprises explosives et compositions originales signées Claude Fridrici, le groupe livre une expérience Rock totale.
+                Alternant entre reprises explosives et compositions originales signées Claude Fridrici, le groupe livre une expérience Rock survoltée.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="member-card p-8 border border-zinc-800 rounded-2xl bg-zinc-900/30 shadow-2xl transition-all">
-                    <a href="https://www.instagram.com/fridriciclaude/" target="_blank" class="member-link">
-                        <p class="text-red-600 font-black text-3xl uppercase italic mb-1 cursor-pointer">Claude</p>
-                        <p class="text-zinc-500 text-[9px] uppercase tracking-widest mb-2 font-bold italic">(voir instagram)</p>
-                    </a>
-                    <div class="text-zinc-400 uppercase tracking-widest text-[10px] font-bold space-y-1">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Claude -->
+                <div class="card-glow p-8 border border-zinc-800 rounded-3xl bg-zinc-950/60 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                            🎸
+                        </div>
+                        <a href="https://www.instagram.com/fridriciclaude/" target="_blank" rel="noopener" class="group block">
+                            <h3 class="text-red-600 font-black text-3xl uppercase italic mb-1 group-hover:underline">Claude</h3>
+                            <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-4 font-bold italic group-hover:text-red-400">Voir Instagram ↗</p>
+                        </a>
+                    </div>
+                    <div class="text-zinc-300 uppercase tracking-widest text-xs font-bold space-y-1 pt-4 border-t border-zinc-900">
                         <p>Guitare / Guitar</p>
-                        <p>Vox / Voix</p>
+                        <p class="text-red-500">Vox / Voix</p>
                     </div>
                 </div>
 
-                <div class="p-8 border border-zinc-800 rounded-2xl bg-zinc-900/30 shadow-2xl">
-                    <p class="text-red-600 font-black text-3xl uppercase italic mb-2">Rudi</p>
-                    <div class="text-zinc-400 uppercase tracking-widest text-[10px] font-bold space-y-1">
+                <!-- Rudi -->
+                <div class="card-glow p-8 border border-zinc-800 rounded-3xl bg-zinc-950/60 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                            🎸
+                        </div>
+                        <h3 class="text-red-600 font-black text-3xl uppercase italic mb-1">Rudi</h3>
+                        <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-4 font-bold italic">Musician</p>
+                    </div>
+                    <div class="text-zinc-300 uppercase tracking-widest text-xs font-bold space-y-1 pt-4 border-t border-zinc-900">
                         <p>Basse / Bass</p>
-                        <p>Chant / Vox</p>
+                        <p class="text-red-500">Chant / Vox</p>
                     </div>
                 </div>
 
-                <div class="member-card p-8 border border-zinc-800 rounded-2xl bg-zinc-900/30 shadow-2xl transition-all">
-                    <a href="https://kymidrummer.netlify.app/" target="_blank" class="member-link">
-                        <p class="text-red-600 font-black text-3xl uppercase italic mb-1 cursor-pointer">Michael / Kymi</p>
-                        <p class="text-zinc-500 text-[9px] uppercase tracking-widest mb-2 font-bold italic">(visiter le site)</p>
-                    </a>
-                    <div class="text-zinc-400 uppercase tracking-widest text-[10px] font-bold space-y-1">
+                <!-- Michael / Kymi -->
+                <div class="card-glow p-8 border border-zinc-800 rounded-3xl bg-zinc-950/60 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                            🥁
+                        </div>
+                        <a href="https://kymidrummer.netlify.app/" target="_blank" rel="noopener" class="group block">
+                            <h3 class="text-red-600 font-black text-3xl uppercase italic mb-1 group-hover:underline">Michael / Kymi</h3>
+                            <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-4 font-bold italic group-hover:text-red-400">Visiter le site ↗</p>
+                        </a>
+                    </div>
+                    <div class="text-zinc-300 uppercase tracking-widest text-xs font-bold space-y-1 pt-4 border-t border-zinc-900">
                         <p>Batterie / Drums</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="videos" class="py-24 bg-zinc-900 text-center relative z-20">
-        <h2 class="text-4xl font-bold uppercase mb-16 italic tracking-widest text-red-600">Vidéos Live & Studio</h2>
-        
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Cycle of war - LED Thionville 23/10/26</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/LTmaLfLFsy0" frameborder="0" allowfullscreen></iframe>
-                </div>
+    <!-- ========================================== -->
+    <!-- SECTION VIDÉOS AVEC FILTRES INTERACTIFS     -->
+    <!-- ========================================== -->
+    <section id="videos" class="py-24 bg-zinc-950 text-center relative z-20 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <h2 class="text-4xl sm:text-5xl font-bold uppercase mb-4 italic tracking-widest text-red-600">
+                Vidéos Live & Studio
+            </h2>
+            <p class="text-zinc-400 text-xs sm:text-sm uppercase tracking-widest mb-10">Filtrez les vidéos par projet ou écoutez tout notre répertoire</p>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+                <button class="tab-btn active px-5 py-2.5 rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 font-bold text-xs uppercase tracking-wider transition-all duration-300" data-filter="all">
+                    Toutes les Vidéos
+                </button>
+                <button class="tab-btn px-5 py-2.5 rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 font-bold text-xs uppercase tracking-wider transition-all duration-300" data-filter="cf-trio">
+                    CF Power Trio
+                </button>
+                <button class="tab-btn px-5 py-2.5 rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 font-bold text-xs uppercase tracking-wider transition-all duration-300" data-filter="solo">
+                    Compos Solo
+                </button>
+                <button class="tab-btn px-5 py-2.5 rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 font-bold text-xs uppercase tracking-wider transition-all duration-300" data-filter="covers">
+                    Covers & Reprises
+                </button>
             </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">WHOiAM CFpowertrio BluesEXpress 26 !!!!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/XusII0H3O4Y" frameborder="0" allowfullscreen></iframe>
+            <!-- Videos Grid (Optimisées embed YouTube) -->
+            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Video 1 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Cycle of war - LED Thionville 23/10/26</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/LTmaLfLFsy0?rel=0&enablejsapi=1" title="Cycle of war" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Mother CF Power trio BluesEXpress 26 !!!!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/iJXk7oj_O6E" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 2 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">WHOiAM CFpowertrio BluesEXpress 26 !!!!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/XusII0H3O4Y?rel=0&enablejsapi=1" title="WHOiAM" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Tearing myself CF Powertrio BluesExpress 26 !!!!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/tpM-Z-U8nns" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 3 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Mother CF Power trio BluesEXpress 26 !!!!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/iJXk7oj_O6E?rel=0&enablejsapi=1" title="Mother" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Sceptical CFpowertrio BluesEXpress 26 !!!!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/rdO_2-oDN28" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 4 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Tearing myself CF Powertrio BluesExpress 26 !!!!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/tpM-Z-U8nns?rel=0&enablejsapi=1" title="Tearing myself" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Official right to live CFpowertrio BluesEXpress 26!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/2EIBUOCSgiU" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 5 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Sceptical CFpowertrio BluesEXpress 26 !!!!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/rdO_2-oDN28?rel=0&enablejsapi=1" title="Sceptical" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Teaser New album solo !!!!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF Claude Fridrici</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/FxrAigsR6Ug" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 6 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Official right to live CFpowertrio BluesEXpress 26!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/2EIBUOCSgiU?rel=0&enablejsapi=1" title="Right to live" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Rocking in a free world</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO & Special Guest Pascal VIGNE</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/XYyAFSjFAl8" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 7 -->
+                <div class="video-card space-y-3" data-category="solo">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Teaser New album solo !!!!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF Claude Fridrici</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/FxrAigsR6Ug?rel=0&enablejsapi=1" title="Teaser New Album Solo" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Compositions & Cover</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">Blues Express 2025</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/nbKIGQUMY8U" title="Rock Slaves - Still Got The Blues" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 8 -->
+                <div class="video-card space-y-3" data-category="covers">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Rocking in a free world</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF POWER TRIO & Special Guest Pascal VIGNE</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/XYyAFSjFAl8?rel=0&enablejsapi=1" title="Rocking in a free world" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Concert Flying Dutchman</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">Snippet Live</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/6RBTJPvGdg0" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 9 -->
+                <div class="video-card space-y-3" data-category="covers">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Compositions & Cover</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">Blues Express 2025</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/nbKIGQUMY8U?rel=0&enablejsapi=1" title="Still Got The Blues" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Cycle of war New release !!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF Claude Fridrici</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/4KSeUTWGfTQ" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 10 -->
+                <div class="video-card space-y-3" data-category="cf-trio">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Concert Flying Dutchman</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">Snippet Live</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/6RBTJPvGdg0?rel=0&enablejsapi=1" title="Flying Dutchman Live" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Sceptical New release !!!</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF Claude Fridrici</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/rskH7bApAXU" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 11 -->
+                <div class="video-card space-y-3" data-category="solo">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Cycle of war New release !!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF Claude Fridrici</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/4KSeUTWGfTQ?rel=0&enablejsapi=1" title="Cycle of War Solo Release" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space-y-4 md:col-span-2 md:max-w-2xl md:mx-auto w-full">
-                <p class="text-zinc-400 uppercase tracking-widest text-xs font-bold italic">Summer of 69 (Cover)</p>
-                <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">Studio Recording 2025</p>
-                <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/d-B6EWiF1EM" frameborder="0" allowfullscreen></iframe>
+                <!-- Video 12 -->
+                <div class="video-card space-y-3" data-category="solo">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Sceptical New release !!!</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">CF Claude Fridrici</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/rskH7bApAXU?rel=0&enablejsapi=1" title="Sceptical Solo Release" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
+
+                <!-- Video 13 -->
+                <div class="video-card space-y-3 md:col-span-2 md:max-w-2xl md:mx-auto w-full" data-category="covers">
+                    <p class="text-zinc-300 uppercase tracking-widest text-xs font-bold italic">Summer of 69 (Cover)</p>
+                    <p class="text-red-500 uppercase font-black text-[10px] tracking-[0.3em]">Studio Recording 2025</p>
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/d-B6EWiF1EM?rel=0&enablejsapi=1" title="Summer of 69 Studio Cover" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="py-16 border-t border-zinc-800 text-center bg-black relative z-20">
-        <div class="flex flex-col items-center gap-6 px-4">
+    <!-- ========================================== -->
+    <!-- SECTION CONTACT & RIDERS TECHNIQUE        -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-20 bg-zinc-900/50 border-t border-zinc-800 relative z-20">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            
+            <h2 class="text-4xl font-bold uppercase mb-2 italic tracking-widest text-white">Booking & Technical Riders</h2>
+            <p class="text-zinc-400 text-xs sm:text-sm uppercase tracking-widest mb-10">Téléchargez les fiches techniques & fiches de scène</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
+                
+                <!-- Rider Rock Trio -->
+                <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <p class="text-red-500 font-bold uppercase text-xs tracking-widest mb-1">Fiche Technique</p>
+                        <h3 class="text-xl font-bold uppercase italic text-white mb-4">Rider Rock Trio</h3>
+                    </div>
+                    <div class="flex gap-3 justify-center uppercase text-xs font-bold">
+                        <a href="riderrtfr.pdf" target="_blank" download class="flex-1 py-3 bg-zinc-800 hover:bg-red-600 hover:text-white text-zinc-300 rounded-xl transition border border-zinc-700">
+                            📥 PDF (FR)
+                        </a>
+                        <a href="riderrten.pdf" target="_blank" download class="flex-1 py-3 bg-zinc-800 hover:bg-red-600 hover:text-white text-zinc-300 rounded-xl transition border border-zinc-700">
+                            📥 PDF (EN)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rider Rock Slaves -->
+                <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <p class="text-red-500 font-bold uppercase text-xs tracking-widest mb-1">Fiche Technique</p>
+                        <h3 class="text-xl font-bold uppercase italic text-white mb-4">Rider Rock Slaves</h3>
+                    </div>
+                    <div class="flex gap-3 justify-center uppercase text-xs font-bold">
+                        <a href="riderfr.pdf" target="_blank" download class="flex-1 py-3 bg-zinc-800 hover:bg-red-600 hover:text-white text-zinc-300 rounded-xl transition border border-zinc-700">
+                            📥 PDF (FR)
+                        </a>
+                        <a href="rideren.pdf" target="_blank" download class="flex-1 py-3 bg-zinc-800 hover:bg-red-600 hover:text-white text-zinc-300 rounded-xl transition border border-zinc-700">
+                            📥 PDF (EN)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Direct Phone Contact -->
+            <div class="inline-block p-6 bg-black border border-red-600/30 rounded-2xl shadow-xl">
+                <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2">Management & Booking Téléphone</p>
+                <a href="tel:+352691805548" class="text-2xl sm:text-3xl font-black text-white hover:text-red-500 transition tracking-wider italic">
+                    📞 +352 691 805 548
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="py-12 border-t border-zinc-900 text-center bg-black relative z-20">
+        <div class="flex flex-col items-center gap-6 px-4 max-w-4xl mx-auto">
+            
             <div class="space-y-2 text-center">
-                <p class="text-zinc-500 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase leading-relaxed">
-                    © 2026 ROCK SLAVES - CF POWER TRIO - KYMIDRUMSPROD association loi 1901
+                <p class="text-zinc-400 text-xs font-bold tracking-[0.2em] uppercase leading-relaxed">
+                    © 2026 ROCK SLAVES - CF POWER TRIO
                 </p>
-                <p class="text-zinc-600 text-[9px] uppercase tracking-[0.4em]">
-                    Web design by Kymi Contact :liquidten8072403@gmail.com | Contact Tech Music: fridriciclaude@yahoo.fr
+                <p class="text-zinc-600 text-[10px] uppercase tracking-[0.25em]">
+                    KymiDrumsProd Association Loi 1901
+                </p>
+                <p class="text-zinc-600 text-[9px] uppercase tracking-[0.3em] pt-2">
+                    Web design by Kymi Contact: <a href="mailto:liquidten8072403@gmail.com" class="hover:underline text-zinc-500">liquidten8072403@gmail.com</a> | Tech Music: <a href="mailto:fridriciclaude@yahoo.fr" class="hover:underline text-zinc-500">fridriciclaude@yahoo.fr</a>
                 </p>
             </div>
-            <img src="kymi.png" alt="Logo KymiDrumsProd" class="h-32 md:h-40 w-auto opacity-100 mt-4 shadow-xl">
+
+            <img src="kymi.png" alt="Logo KymiDrumsProd" class="h-28 sm:h-36 w-auto opacity-90 mt-2 hover:opacity-100 transition">
+
         </div>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC                           -->
+    <!-- ========================================== -->
+    <script>
+        // --- 1. Mobile Menu Toggle ---
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- 2. Countdown Timer for Next Show (21 Nov 2026) ---
+        const showDate = new Date('November 21, 2026 20:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = showDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "<p class='col-span-4 text-red-500 font-bold uppercase'>Événement en cours ou terminé !</p>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('cd-hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('cd-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('cd-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- 3. Interactive Video Filters ---
+        const filterBtns = document.querySelectorAll('.tab-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // --- 4. Past Shows Accordion Toggle ---
+        const toggleBtn = document.getElementById('toggle-archives-btn');
+        const archivesContainer = document.getElementById('archives-container');
+        const arrow = document.getElementById('accordion-arrow');
+
+        toggleBtn.addEventListener('click', () => {
+            archivesContainer.classList.toggle('hidden');
+            if (archivesContainer.classList.contains('hidden')) {
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        });
+    </script>
 </body>
 </html>
